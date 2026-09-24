@@ -1,0 +1,188 @@
+{
+  "name": "AI Agent Contributor Guide",
+  "version": "1.0.0",
+  "purpose": "Define strict rules for AI agents making changes to this project.",
+  "core_principle": "Make only the changes explicitly requested by the user. Preserve everything else.",
+
+  "rules": {
+    "scope": {
+      "description": "Only work on what the user explicitly asks for.",
+      "requirements": [
+        "Make the smallest change that completely solves the request.",
+        "Do not make unrelated improvements.",
+        "Do not refactor unrelated code.",
+        "Do not modify files that are not necessary for the task.",
+        "If an unrelated issue is discovered, report it instead of fixing it."
+      ]
+    },
+
+    "ui_protection": {
+      "description": "The existing UI is protected unless the user explicitly requests UI changes.",
+      "do_not_change": [
+        "Layout",
+        "Colors",
+        "Fonts",
+        "Spacing",
+        "Buttons",
+        "Icons",
+        "Animations",
+        "Responsive behavior",
+        "Component styling",
+        "Navigation",
+        "Existing UI text",
+        "Existing user flows"
+      ],
+      "rule": "If the requested feature can be implemented without changing the UI, do not change the UI."
+    },
+
+    "file_protection": {
+      "description": "Only modify files directly required for the requested task.",
+      "rules": [
+        "Inspect the project before editing.",
+        "Identify the minimum files required.",
+        "Do not touch unrelated files.",
+        "Do not reorganize folders without explicit permission.",
+        "Do not rename files unless required by the task."
+      ]
+    },
+
+    "existing_behavior": {
+      "description": "Existing functionality must remain unchanged unless the user explicitly requests a behavior change.",
+      "rules": [
+        "Preserve existing functionality.",
+        "Reuse existing components and utilities when appropriate.",
+        "Do not replace working architecture without a specific reason.",
+        "Do not introduce breaking changes unnecessarily."
+      ]
+    },
+
+    "refactoring": {
+      "allowed": false,
+      "rules": [
+        "Do not perform unrequested refactoring.",
+        "Do not rename variables or functions just for style.",
+        "Do not rewrite working components unnecessarily.",
+        "Do not change the project architecture.",
+        "Do not remove code unless it is required for the requested task."
+      ]
+    },
+
+    "dependencies": {
+      "rules": [
+        "Prefer existing dependencies.",
+        "Do not install a new dependency unless it is genuinely required.",
+        "Do not upgrade dependencies unless explicitly requested or strictly necessary.",
+        "Do not replace an existing library with another library without permission."
+      ]
+    },
+
+    "project_patterns": {
+      "description": "Follow the existing project's conventions.",
+      "rules": [
+        "Inspect similar existing implementations before creating new code.",
+        "Reuse existing utilities, hooks, components, services, and helpers.",
+        "Follow existing naming conventions.",
+        "Follow existing styling conventions.",
+        "Follow existing state-management patterns.",
+        "Follow existing API and error-handling patterns."
+      ]
+    },
+
+    "requirements": {
+      "rules": [
+        "Do not invent product requirements.",
+        "Do not guess important business logic.",
+        "Do not invent API behavior.",
+        "Do not invent UI behavior.",
+        "Ask for clarification when ambiguity would materially change the implementation.",
+        "If the request is clear, do not ask unnecessary questions."
+      ]
+    },
+
+    "security": {
+      "rules": [
+        "Never expose API keys.",
+        "Never expose passwords.",
+        "Never expose authentication tokens.",
+        "Never expose private credentials.",
+        "Never commit secrets.",
+        "Do not log sensitive information.",
+        "Use the project's existing environment-variable and configuration mechanisms."
+      ]
+    },
+
+    "testing": {
+      "rules": [
+        "Run relevant tests after making changes when tests are available.",
+        "Run relevant lint checks when available.",
+        "Run relevant type checks when available.",
+        "Verify that the requested behavior works.",
+        "Do not delete or weaken tests simply to make them pass.",
+        "Do not modify tests unless the expected behavior has actually changed."
+      ]
+    },
+
+    "debugging": {
+      "rules": [
+        "Remove temporary console logs.",
+        "Remove temporary debug UI.",
+        "Remove temporary routes.",
+        "Remove temporary mock data.",
+        "Remove temporary development values.",
+        "Do not leave debugging artifacts in production code."
+      ]
+    },
+
+    "code_style": {
+      "rules": [
+        "Follow the existing code style.",
+        "Do not reformat entire files unnecessarily.",
+        "Keep changes localized.",
+        "Use existing naming conventions.",
+        "Use existing import conventions.",
+        "Use existing component and function patterns."
+      ]
+    },
+
+    "unrelated_issues": {
+      "rule": "Do not fix unrelated problems discovered during the task.",
+      "required_response": "Report unrelated issues separately without modifying them."
+    },
+
+    "before_editing": {
+      "checklist": [
+        "Understand exactly what the user requested.",
+        "Inspect the relevant code.",
+        "Identify the files that need to change.",
+        "Understand existing behavior.",
+        "Determine the smallest safe implementation.",
+        "Identify what must remain untouched."
+      ]
+    },
+
+    "after_editing": {
+      "checklist": [
+        "Review all changed files.",
+        "Confirm that only necessary files were changed.",
+        "Confirm that the UI was not changed unless requested.",
+        "Confirm that unrelated functionality was not changed.",
+        "Confirm that no unnecessary dependencies were added.",
+        "Remove temporary debugging code.",
+        "Run relevant tests and checks."
+      ]
+    }
+  },
+
+  "change_policy": {
+    "priority": [
+      "User request",
+      "Existing project behavior",
+      "Existing project architecture",
+      "Minimal implementation",
+      "Code quality improvements"
+    ],
+    "rule": "Do not sacrifice the user's requested scope for optional improvements."
+  },
+
+  "golden_rule": "Do exactly what was requested, change as little as possible, preserve everything else, and never make unrelated improvements without permission."
+}
