@@ -1,0 +1,11 @@
+venv/
+__pycache__/
+*.pyc
+.env
+.pytest_cache/
+models/*.joblib
+models/*.sha256
+rules/
+data/
+logs/
+.DS_Store
